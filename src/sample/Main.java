@@ -33,7 +33,7 @@ public class Main extends Application {
          flowPane.setHgap(20);
 
 
-        ToggleSwitch googleToggleSwitch =new GoogleToggleSwitch(30,15);
+        ToggleSwitch googleToggleSwitch =new GoogleToggleSwitch(45,20);
         Text text2 = new Text("OFF");
         text2.setFill(Color.WHITE);
         FlowPane flowPane2 =new FlowPane(text2 , googleToggleSwitch);
@@ -51,7 +51,7 @@ public class Main extends Application {
         });
         googleToggleSwitch.switchedOnProperty().addListener(e->{
             if(googleToggleSwitch.isSwitchedOn())
-                text2.setText("ON");
+                text2.setText("OFF");
             else
                 text2.setText("OFF");
         });

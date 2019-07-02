@@ -6,12 +6,13 @@ import javafx.animation.TranslateTransition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.Parent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-public class ToggleSwitch extends Parent {
+public class ToggleSwitch extends Pane {
 
     private Rectangle rectangle;
     private Circle circle;
@@ -30,6 +31,7 @@ public class ToggleSwitch extends Parent {
         isOpen = new SimpleBooleanProperty(false);
         rectangle = new Rectangle(width,height);
         circle =  new Circle(radius);
+
         move = new TranslateTransition(Duration.seconds(0.25), circle);
         backgroundFillTransition = new FillTransition(Duration.seconds(0.25) , rectangle);
         circleFillTransition = new FillTransition(Duration.seconds(0.25) , circle);
@@ -115,11 +117,12 @@ public class ToggleSwitch extends Parent {
         }
     }
 
-    public void setMove(double  x){
-        coordinates = coordinates +x;
-        mainCoordintes = -5;
+    protected void googleMode(){
+        coordinates = coordinates + circle.getRadius();
+        mainCoordintes = -3;
     }
 
-
-
+    public void setDuration(Duration duration) {
+        move.setDuration(duration);
+    }
 }
